@@ -10,11 +10,25 @@
     <button onclick="f1()">Click</button>
     <script>
         function f1(){
-            console.log("First");
-            setTimeout(function second(){
-                console.log("Time Out");
-            },1);
-        console.log("Final");
+        //     console.log("First");
+        //     setTimeout(function second(){
+        //         console.log("Time Out");
+        //     },1);
+        // console.log("Final");
+
+        // async function f(){
+        //     return Promise.resolve(1);
+        // }
+        // f().then(alert);
+            async function f(){
+                let promise=new Promise((resolve,reject)=>{
+                setTimeout(()=>resolve("Done!"),1000);
+                setTimeout(()=>reject("Not Done!"),1000);
+            });
+            let result=await promise;
+            alert(result);
+            }
+            f();
         }
     </script>
 </body>
