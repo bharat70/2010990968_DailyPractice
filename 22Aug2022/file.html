@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1"></p>
+    <input id="i1" type="text" placeholder="Enter a number">
+    <button onclick="func()">click</button>
+    <script>
+        function func(){
+            const a=document.getElementById("p1");
+            // document.getElementById("p1").innerHTML=a+" ";
+            a.innerHTML="";
+            let x=document.getElementById("i1").value;
+            try{
+                if(x=="") throw "empty";
+                if(isNaN(x)) throw "Not a number";
+                x=Number(x);
+                if(x<5) throw "too low";
+                if(x>10) throw "too high";
+                alert("Number is Valid");
+             }
+             catch(err){
+                a.innerHTML="Input is "+ err;
+             }
+             finally{
+                document.getElementById("p1").value=""
+             }
+            // if(a>=1 || a<=5){
+            //     document.getElementById("p1").innerHTML="input is okay";
+            // }
+            // else{
+            //     document.getElementById("p1").innerHTML="input is not valid";
+            // }
+        }
+        // let a=0;
+        // a=a+1;
+        // try{
+        //     alert("Welcome Guest");
+        // }
+        // catch(err){
+        //     document.getElementById("p1").innerHTML=err.message;
+        // }
+        // a=a+1;
+        // document.getElementById("p1").innerHTML=a;
+    </script>
+</body>
+</html>
